@@ -1,0 +1,300 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(45deg, #5548bb, #241152, #231667, #616ff2);
+    background-size: 300% 300%;
+    animation: color 12s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Ensure positioning context for absolute children */
+}
+
+@keyframes color {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.heart {
+    height: 70px;
+    width: 70px;
+    background: #1458A6;
+    position: relative;
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 90px #1458A6;
+    animation: heart 0.6s linear infinite;
+}
+
+@keyframes heart {
+    0% {
+        transform: rotate(-45deg) scale(1.08);
+    }
+    80% {
+        transform: rotate(-45deg) scale(1.0);
+    }
+    100% {
+        transform: rotate(-45deg) scale(0.8);
+    }
+}
+
+.heart:before {
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background: #1458A6;
+    top: -50%;
+    border-radius: 50px;
+    box-shadow: 10px -10px 90px #1458A6;
+}
+
+.heart:after {
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background: #1458A6;
+    right: -50%;
+    border-radius: 50px;
+    box-shadow: 10px 10px 90px #1458A6;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+button svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+}
+
+/* Existing styles */
+/*
+----------------------------------------------------------------
+*/
+
+.progress-bar {
+    display: flex; /* Enable flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 10%; /* Stretches the bar to full width of its container */
+    height: 10px; /* Sets the height of the bar */
+    background-color: #eee; /* Light gray background color */
+    border-radius: 5px; /* Rounded corners for a smooth look */
+    margin-top: 20px; /* Adds some space above the bar */
+  }
+  
+  .progress {
+    height: 2px; /* Reduce height to 2px */
+    background-color: #007bff; /* Blue background color for the filled part */
+    transition: width 0.5s ease; 
+    transition: width 1s ease; /* Smooth transition for width changes */
+  }
+  /*
+  ------------------------------------------------------------------------------------------
+  */
+
+  @keyframes GradientBackground {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+
+.flip-card-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.flip-card {
+    width: 160px; /* Ancho fijo */
+    height: 230px; /* Altura fija */
+    perspective: 1000px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    position: relative;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: 100%; /* La imagen ocupa todo el alto del contenedor */
+    object-fit: cover; /* Ajusta la imagen para cubrir todo el espacio disponible */
+    border-radius: 10px;
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+.flip-card-back {
+    background-color: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/*---------------------------------------------------*/
+.flip-card:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(0deg) translate(300px) rotate(0deg);
+}
+
+.flip-card:nth-child(2) {
+    transform: translate(-44%, -18%) rotate(72deg) translate(230px) rotate(-72deg);
+}
+
+.flip-card:nth-child(3) {
+    transform: translate(-70%, -50%) rotate(144deg) translate(300px) rotate(-144deg);
+}
+
+.flip-card:nth-child(4) {
+    transform: translate(-50%, -50%) rotate(216deg) translate(60px) rotate(-216deg);
+}
+
+.flip-card:nth-child(5) {
+    transform: translate(20%, -20%) rotate(-72deg) translate(-220px) rotate(72deg);
+}
+.flip-card:nth-child(6) {
+    transform: translate(-225%, -45%) rotate(0deg) translate(90px) rotate(0deg);
+}
+
+.circle {
+    position: absolute;
+}
+
+@keyframes jellyfishMovement {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(50px, -50px) scale(1.2); }
+    50% { transform: translate(100px, 0) scale(0.8); }
+    75% { transform: translate(50px, 50px) scale(1); }
+}
+
+.circle1, .circle2, .circle3, .circle4, .circle5, .circle6, .circle7 ,.circle8{
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    animation-timing-function: linear;
+}
+
+.circle1 {
+    left: 10%;
+    top: 20%;
+    width: 42px;
+    height: 42px;
+    animation: jellyfishMovement 12s infinite;
+    background-image: url('jellyfish_39066.png');
+}
+
+.circle2 {
+    left: 40%;
+    top: 50%;
+    width: 64px;
+    height: 64px;
+    animation: jellyfishMovement 14s infinite;
+    animation-delay: -2s;
+    background-image: url('ballena.png');
+}
+
+.circle3 {
+    left: 70%;
+    top: 30%;
+    width: 100px;
+    height: 100px;
+    animation: jellyfishMovement 16s infinite;
+    background-image: url('raya.png');
+}
+
+.circle4 {
+    left: 20%;
+    top: 70%;
+    width: 32px;
+    height: 32px;
+    animation: jellyfishMovement 18s infinite;
+    animation-delay: -4s;
+    background-image: url('jellyfish_icon-icons.com_51220.png');
+}
+
+.circle5 {
+    left: 80%;
+    top: 20%;
+    width: 64px;
+    height: 64px;
+    animation: jellyfishMovement 20s infinite;
+    animation-delay: -1s;
+    background-image: url('jellyfish_39066.png');
+}
+
+.circle6 {
+    left: 60%;
+    top: 80%;
+    width: 48px;
+    height: 48px;
+    animation: jellyfishMovement 22s infinite;
+    background-image: url('tuli.png');
+}
+
+.circle7 {
+    left: 30%;
+    top: 30%;
+    width: 32px;
+    height: 32px;
+    animation: jellyfishMovement 24s infinite;
+    animation-delay: -3s;
+    background-image: url('jellyfish_39066.png');
+}
+.circle8 {
+    left: 50%;
+    top: 90%;
+    width: 80px;
+    height: 80px;
+    animation: jellyfishMovement 24s infinite;
+    animation-delay: -3s;
+    background-image: url('Ballena2.png');
+}
+
